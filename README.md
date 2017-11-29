@@ -2,4 +2,4 @@
 
 A simple tool to prototype code theme and test contrast ratio. 
 
-![Preview Image](https://user-images.githubusercontent.com/5186564/33352738-2ad53288-d45f-11e7-8962-a213cb1279b3.png)
+![Preview Image](https://user-images.githubusercontent.com/5186564/33352938-20239658-d460-11e7-9a76-439193628b7f.png)
