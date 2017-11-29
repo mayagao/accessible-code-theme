@@ -28,6 +28,7 @@
   "main": "index.js",
   "author": "Maya Gao",
   "license": "MIT",
+  "homepage": "https://mayagao.github.io/theme-maker",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

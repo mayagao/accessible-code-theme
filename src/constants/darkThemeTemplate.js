@@ -1,4 +1,4 @@
-export const syntaxThemeTemplate = [
+export const darkThemeSyntaxTemplate = [
   {
     lable: 'Default Text',
     value: '#F8F6F5',
@@ -30,3 +30,18 @@ export const syntaxThemeTemplate = [
     className: ['cm-string', 'cm-string-2']
   }
 ]
+
+export const darkThemeDerivatives = `
+  .CodeMirror-gutters { 
+    background: #000 !important; 
+    opacity: 0.2 !important; 
+    border: 4px solid transparent !important ;
+  }
+  .cm-comment, 
+  .CodeMirror-linenumber { 
+    opacity: 0.5; 
+  }
+  .cm-operator { 
+    opacity: 0.8; 
+  }
+`

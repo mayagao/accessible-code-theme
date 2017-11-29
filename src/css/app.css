@@ -20,7 +20,7 @@ body {
 
 input {
   color: rgba(0,0,0, 0.7);
-  border: transparent;
+
 }
 
 input:focus {
