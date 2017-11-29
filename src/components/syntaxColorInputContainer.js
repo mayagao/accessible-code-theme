@@ -1,5 +1,9 @@
+// SyntaxColorInputContainer includes the color input and the 
+// contrast widget, it modifies CSS rules of the code container
+
 import React from 'react';
 import ColorInput from './colorInput.js'
+import ContrastWidget from './contrastWidget.js'
 
 class SyntaxColorInputContainer extends React.Component {
   constructor(props) {
@@ -12,10 +16,11 @@ class SyntaxColorInputContainer extends React.Component {
   render() {
     const {
       label,
-      className
+      className,
+      background
     } = this.props;
     return (
-      <div className='mr2'>
+      <div>
         <style jsx>{`
           .${className.length > 1 ? className.join(', .') : className[0]} {
             color: ${this.state.value} !important;
@@ -25,6 +30,10 @@ class SyntaxColorInputContainer extends React.Component {
           value={this.state.value} 
           label={label}
           onChange={this.handleChange} />
+         <ContrastWidget
+          foreground={this.state.value}
+          background={background}
+          />
       </div>
       
     )

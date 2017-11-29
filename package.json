@@ -24,7 +24,7 @@
     "prestart": "npm run css",
     "prebuild": "npm run css"
   },
-  "description": "A tool for designing code themes",
+  "description": "Design accessible code themes",
   "main": "index.js",
   "author": "Maya Gao",
   "license": "MIT",

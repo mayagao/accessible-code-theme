@@ -35,18 +35,22 @@ class App extends Component {
           ref='editor' 
           value={d3ExampleSnippet}
           options={options} />
-        <form className='mt3'>
+        <form className='mt2 flex flex-wrap'>
+          <div className='w30 dib mr4 mt3'>
           <ColorInput
             value={this.state.bgColor} 
             label={'Background'}
             onChange={this.updateBgColor} />
+          </div>
           {syntaxThemeTemplate.map((s, i) => 
-            <SyntaxColorInputContainer 
-              key={i} 
-              label={s.lable} 
-              value={s.value} 
-              className={s.className} 
-            />)}
+            <div key={i}  className='w30 mr4 dib mt3'>
+              <SyntaxColorInputContainer 
+                label={s.lable} 
+                value={s.value} 
+                background={this.state.bgColor}
+                className={s.className} 
+              />
+            </div>)}
         </form>
       </div>
     );
