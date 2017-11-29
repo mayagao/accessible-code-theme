@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CodeMirror from 'react-codemirror'
-import './css/app.css';
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/addon/runmode/runmode.js'
