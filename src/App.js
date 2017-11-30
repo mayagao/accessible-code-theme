@@ -8,6 +8,7 @@ import ColorInput from './components/colorInput.js'
 import { darkThemeSyntaxTemplate, darkThemeDerivatives } from './constants/darkThemeTemplate.js'
 import { lightThemeSyntaxTemplate, lightThemeDerivatives } from './constants/lightThemeTemplate.js'
 import { d3ExampleSnippet } from './constants/codeSnippets.js'
+import ContrastScale from './components/contrastScale'
 
 class App extends Component {
   constructor(props) {
@@ -32,10 +33,10 @@ class App extends Component {
       readOnly: false,
       mode: 'javascript'
     };
-    const colorInputColumnClasses = 'w30 dib mr4 mt3';
+    const colorInputColumnClasses = 'w-20-l w4-m w-40 dib mr4 mb3';
  
     return (
-      <div className='ph4 pv4'>
+      <div className='ph4 pv4 mw8 center w-100'>
       <style jsx>{`
       .CodeMirror { padding: 0px; border-radius: 6px; background: ${this.state.bgColor} !important; }
       ${this.state.theme === 'light' ? lightThemeDerivatives : darkThemeDerivatives}
@@ -48,32 +49,45 @@ class App extends Component {
           ref='editor' 
           value={d3ExampleSnippet}
           options={options} />
-        <form className='mt2 flex flex-wrap'>
-          <div className={`${colorInputColumnClasses}`}>
-          <ColorInput
-            value={this.state.bgColor} 
-            label={'Background'}
-            onChange={this.updateBgColor} />
-          </div>         
-          {this.state.theme === 'light' && lightThemeSyntaxTemplate.map((s, i) => 
-            <div key={i}  className={`${colorInputColumnClasses}`}>
-              <SyntaxColorInputContainer 
-                label={s.lable} 
-                value={s.value} 
-                background={this.state.bgColor}
-                className={s.className} 
-              />
-            </div>)}
-          {this.state.theme === 'dark' && darkThemeSyntaxTemplate.map((s, i) => 
-            <div key={i}  className={`${colorInputColumnClasses}`}>
-              <SyntaxColorInputContainer 
-                label={s.lable} 
-                value={s.value} 
-                background={this.state.bgColor}
-                className={s.className} 
-              />
-            </div>)}
-        </form>
+        <div className='cf pv4'>
+          <div className='w-30-l w-100 fl mb4'>
+            <div className='f5 '>Contrast Score</div>
+            <div className='mt3 code f6 h3 overflow-hidden'>
+              <ContrastScale />
+            </div>
+            <div className='f5 o-60 mt1 pr4-ns pr0 lh-title'>
+              Contrast score is calculated based on Web Content Accessibility Guidelines(WCAG) 2.0.
+            </div>
+          </div>
+          <div className='w-70-l w-100 fl mt4 mb4'>
+            <form className='flex flex-wrap'>
+              <div className={`${colorInputColumnClasses}`}>
+              <ColorInput
+                value={this.state.bgColor} 
+                label={'Background'}
+                onChange={this.updateBgColor} />
+              </div>         
+              {this.state.theme === 'light' && lightThemeSyntaxTemplate.map((s, i) => 
+                <div key={i}  className={`${colorInputColumnClasses}`}>
+                  <SyntaxColorInputContainer 
+                    label={s.lable} 
+                    value={s.value} 
+                    background={this.state.bgColor}
+                    className={s.className} 
+                  />
+                </div>)}
+              {this.state.theme === 'dark' && darkThemeSyntaxTemplate.map((s, i) => 
+                <div key={i}  className={`${colorInputColumnClasses}`}>
+                  <SyntaxColorInputContainer 
+                    label={s.lable} 
+                    value={s.value} 
+                    background={this.state.bgColor}
+                    className={s.className} 
+                  />
+                </div>)}
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

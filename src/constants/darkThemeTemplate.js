@@ -10,12 +10,12 @@ export const darkThemeSyntaxTemplate = [
     className: ['cm-keyword']
   },
   {
-    lable: 'Variable',
+    lable: 'Variable Defination',
     value: '#7CB4F0',
     className: ['cm-atom', 'cm-def']
   },
   {
-    lable: 'Identifier',
+    lable: 'Variable',
     value: '#B6AFF7',
     className: ['cm-variable', 'cm-variable-2']
   },

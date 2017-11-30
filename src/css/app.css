@@ -1,26 +1,42 @@
+
 @import 'tachyons';
 
-h1 {
-  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.05em;
+@font-face {
+  font-family: 'Domus Regular';
+  src: url('static/fonts/Domus-Regular.otf') format('opentype'); /* Super Modern Browsers */
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono Regular';
+  src: url('static/fonts/UbuntuMono-Regular.ttf') format('truetype'); /* Super Modern Browsers */
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono Bold';
+  src: url('static/fonts/UbuntuMono-Bold.ttf') format('truetype'); /* Super Modern Browsers */
 }
 
 body {
-  font-family: "Domus", -apple-system, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Domus Regular", -apple-system, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   letter-spacing: 0.021em;
 }
 
-
 .CodeMirror,
 .code {
-  font-family: 'Ubuntu Mono' !important;
+  font-family: 'Ubuntu Mono Regular', monospace !important;
+}
+
+
+.CodeMirror .bold,
+.code .bold {
+  font-family: 'Ubuntu Mono Bold', monospace !important;
 }
 
 input {
   color: rgba(0,0,0, 0.7);
-
+  border: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 input:focus {

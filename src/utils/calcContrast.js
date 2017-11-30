@@ -18,7 +18,7 @@ export const calcContrast = (foreground, background) => {
   }
 
   contrastRatio = contrastRatio.toFixed(2);
-  rating = contrastRatio >= 7 ? "AAA" : contrastRatio >= 4.5 ? "AA" : contrastRatio >= 3 ? "A" : "Low";
+  rating = contrastRatio >= 7 ? "AAA" : contrastRatio >= 4.5 ? "AA" : contrastRatio >= 3 ? "" : "Low";
 
   return [contrastRatio, rating];
    

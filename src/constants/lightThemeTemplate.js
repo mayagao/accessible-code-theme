@@ -10,12 +10,12 @@ export const lightThemeSyntaxTemplate = [
     className: ['cm-keyword']
   },
   {
-    lable: 'Variable',
+    lable: 'Variable Defination',
     value: '#3D2C40',
     className: ['cm-atom', 'cm-def']
   },
   {
-    lable: 'Identifier',
+    lable: 'Variable',
     value: '#4B93E3',
     className: ['cm-variable', 'cm-variable-2']
   },
