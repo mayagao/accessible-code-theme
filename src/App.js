@@ -41,6 +41,7 @@ class App extends Component {
       .CodeMirror { padding: 0px; border-radius: 6px; background: ${this.state.bgColor} !important; }
       ${this.state.theme === 'light' ? lightThemeDerivatives : darkThemeDerivatives}
     `}</style>
+        <div className='f3 mb4'>CodeMirror Theme Contrast Ratio</div>
         <div className='mb3'>
           <a className={`${this.state.theme === 'light' ? '': 'o-50'} pointer mr3`} onClick={this.switchThemeLight}>Light</a>
           <a className={`${this.state.theme === 'dark' ? '': 'o-50'} pointer `} onClick={this.switchThemeDark}>Dark</a>
@@ -49,17 +50,19 @@ class App extends Component {
           ref='editor' 
           value={d3ExampleSnippet}
           options={options} />
-        <div className='cf pv4'>
+        <div className='cf mt3 pv4'>
           <div className='w-30-l w-100 fl mb4'>
-            <div className='f5 '>Contrast Score</div>
+            <div className='f6 pr4-ns gray pr0 lh-title'>
+              Contrast score is calculated based on Web Content Accessibility Guidelines <a 
+               className='blue no-underline link'
+               href='https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html'>2.0</a>.
+              The recommended minimum score for text smaller than 18pt (24px) is 4.5.
+            </div>
             <div className='mt3 code f6 h3 overflow-hidden'>
               <ContrastScale />
             </div>
-            <div className='f5 o-60 mt1 pr4-ns pr0 lh-title'>
-              Contrast score is calculated based on Web Content Accessibility Guidelines(WCAG) 2.0.
-            </div>
           </div>
-          <div className='w-70-l w-100 fl mt4 mb4'>
+          <div className='w-70-l w-100 fl mb4'>
             <form className='flex flex-wrap'>
               <div className={`${colorInputColumnClasses}`}>
               <ColorInput

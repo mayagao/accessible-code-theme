@@ -33,10 +33,15 @@ body {
   font-family: 'Ubuntu Mono Bold', monospace !important;
 }
 
+.f6 {
+  font-size: 0.92rem;
+}
+
 input {
   color: rgba(0,0,0, 0.7);
   border: transparent;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0;
 }
 
 input:focus {
