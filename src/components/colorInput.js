@@ -5,7 +5,11 @@ import { isTooBright } from '../utils/isTooBright'
 
 class ColorInput extends React.Component {
   handleChange = (e) => {
-    this.props.onChange(e.target.value);
+    if (this.props.label === 'Background') {
+      this.props.onChange(e.target.value);
+    } else {
+      this.props.onChange(this.props.label, e.target.value);
+    }
   };
   render() {
     const {
@@ -14,7 +18,6 @@ class ColorInput extends React.Component {
     } = this.props;
     let tooBright = isTooBright(value);
     return (
-
       <div className='mb1'>
       <style jsx>{`
       input {
