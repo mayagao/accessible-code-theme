@@ -22,10 +22,17 @@ ${generateDerivativeRules(themeTemplate.themeDerivatives)}\n${themeTemplate.them
  onClick = (e) => {
     e.preventDefault();
     let ruleName = this.props.themeName.trim().toLowerCase().replace(/\s/g, '-')
-    let rule = `<pre>` + 
-      this.generateCssRules(this.props.bgColor, this.props.themeTemplate).replace(/themeName/g, ruleName)
-      + `</pre>`;
-    window.open("about:blank", "").document.write(rule);
+    let rule = this.generateCssRules(this.props.bgColor, this.props.themeTemplate)
+      .replace(/themeName/g, ruleName)
+    const exportWindow = window.open('about:blank', '_blank')
+
+    if (!exportWindow) {
+      return
+    }
+
+    const pre = exportWindow.document.createElement('pre')
+    pre.textContent = rule
+    exportWindow.document.body.replaceChildren(pre)
   }
   
 render() {
