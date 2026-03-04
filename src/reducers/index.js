@@ -9,10 +9,12 @@ import {
 import _darkThemeTemplate from '../api/darkThemeTemplate.json'
 import _lightThemeTemplate from '../api/lightThemeTemplate.json'
 
+const cloneTheme = theme => JSON.parse(JSON.stringify(theme))
+
 const initialState = {
   themeName: '',
   baseThemeName: 'light',
-  baseTheme: _lightThemeTemplate,
+  baseTheme: cloneTheme(_lightThemeTemplate),
   bgColor: '#FBFAF9'
 }
 
@@ -28,7 +30,7 @@ const themeApp = (state = initialState, action) => {
         ...state,
         baseThemeName: 'light',
         bgColor: '#FBFAF9',
-        baseTheme: _lightThemeTemplate
+        baseTheme: cloneTheme(_lightThemeTemplate)
       }
       
     case SWITCH_BASE_THEME_DARK:
@@ -36,7 +38,7 @@ const themeApp = (state = initialState, action) => {
         ...state,
         baseThemeName: 'dark',
         bgColor: '#3D2C40',
-        baseTheme: _darkThemeTemplate
+        baseTheme: cloneTheme(_darkThemeTemplate)
       }
     case UPDATE_BG_COLOR:
       return {
@@ -45,10 +47,14 @@ const themeApp = (state = initialState, action) => {
       }
      
     case UPDATE_SYNTAX_COLOR:
-      let themeSyntax = state.baseTheme.themeSyntax
-      let index = themeSyntax.indexOf(themeSyntax.find(i => i.label === action.label))
-      let newItem = themeSyntax[index]
-      newItem.value = action.value
+      const index = state.baseTheme.themeSyntax.findIndex(i => i.label === action.label)
+      if (index === -1) {
+        return state
+      }
+      const updatedSyntaxItem = {
+        ...state.baseTheme.themeSyntax[index],
+        value: action.value
+      }
 
       return {
         ...state,
@@ -56,7 +62,7 @@ const themeApp = (state = initialState, action) => {
           ...state.baseTheme,
           themeSyntax: [
              ...state.baseTheme.themeSyntax.slice(0, index),
-             newItem,
+             updatedSyntaxItem,
              ...state.baseTheme.themeSyntax.slice(index + 1)
           ]
         }
